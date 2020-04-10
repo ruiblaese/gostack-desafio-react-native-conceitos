@@ -14,13 +14,13 @@ import api from './services/api';
 
 export default function App() {
 
-  const [respositories, setRespositories] = useEffect([]);
+  const [respositories, setRespositories] = useState([]);
 
   useEffect(() => {
     api.get('repositories')
     .then(response => {
       setRespositories(response.data)
-    })
+    });
   },[]);
 
   async function handleLikeRepository(id) {
